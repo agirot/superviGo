@@ -1,11 +1,11 @@
 # superviGo
 Personal terminal dashboard supervisor (Sentry,redis,rabbitMQ,HTTP)
 
-##Features
+## Features
 - Connector for RabbitMQ, Sentry 7, Redis, endpoint http
 - Highlight data depending of your configuration
 
-##Overview
+## Overview
 
 ![superviGo overview](https://raw.githubusercontent.com/agirot/superviGo/master/assets/screenshot.png)
 
