@@ -54,7 +54,7 @@ func getStats() (SentryList, []error) {
 	url := fmt.Sprintf("http://%v/api/0/projects/%v/%v/groups/", sentryConfig.Host, sentryConfig.OrganisationSlug, sentryConfig.ProjectSlug)
 	_, _, errs := request.Get(url).SetBasicAuth(sentryConfig.ApiKey, "").EndStruct(&data)
 	if errs != nil {
-			return SentryList{}, errs
+		return SentryList{}, errs
 	}
 
 	sentryList := SentryList{SentryItem: data}
@@ -109,8 +109,8 @@ func UpdateRender(tab *ui.List) {
 		var sentryTitle string
 		var sentryInfo string
 		if color != "" {
-			sentryTitle = "["+formatTitleString(item)+"]("+color+")"
-			sentryInfo = "["+formatMetaString(item)+"]("+color+")"
+			sentryTitle = "[" + formatTitleString(item) + "](" + color + ")"
+			sentryInfo = "[" + formatMetaString(item) + "](" + color + ")"
 		} else {
 			sentryTitle = formatTitleString(item)
 			sentryInfo = formatMetaString(item)

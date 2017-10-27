@@ -55,10 +55,6 @@ func Render() *ui.Table {
 	return table2
 }
 
-/*func formatStringStatsCell(req rabbitMqRequest) string {
-	return fmt.Sprintf("%9.f messages/s", req.MessageStats.DeliverStats.Rate)
-}*/
-
 func UpdateRender(tab *ui.Table) {
 	now := time.Now()
 	if now.Before(nextUpdate) {

@@ -7,7 +7,7 @@ import (
 )
 
 type ConfigurationFile struct {
-	Amqp        Amqp                    `json:"amqp"`
+	RabbitMq    RabbitMq                `json:"rabbitmq"`
 	PathConsole string                  `json:"console_path"`
 	Sentry      Sentry                  `json:"sentry"`
 	Redis       Redis                   `json:"redis"`
@@ -22,7 +22,7 @@ type Sentry struct {
 	MaxItem          int    `json:"max_item"`
 }
 
-type Amqp struct {
+type RabbitMq struct {
 	Host     string           `json:"host"`
 	Port     string           `json:"port"`
 	WebPort  string           `json:"web_port"`

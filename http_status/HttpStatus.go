@@ -15,7 +15,7 @@ var (
 )
 
 func getStatus(endPoint ressource.HttpEndpoint) (gorequest.Response, time.Duration, []error) {
-	req := gorequest.New().Timeout(2*time.Second)
+	req := gorequest.New().Timeout(2 * time.Second)
 	req.Url = endPoint.Url
 	req.Method = "GET"
 	if endPoint.BasicAuthUser != "" || endPoint.BasicAuthPassword != "" {

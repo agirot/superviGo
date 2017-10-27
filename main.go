@@ -34,8 +34,8 @@ func main() {
 		ui.NewRow(
 			ui.NewCol(6, 0, sentryWindow),
 			ui.NewCol(6, 0, rabbitWindow, redisWindow, httpWindow),
-			),
-		)
+		),
+	)
 
 	// calculate layout
 	ui.Body.Align()

@@ -6,7 +6,7 @@ import (
 	ui "github.com/gizak/termui"
 	"github.com/agirot/superviGo/config"
 	"time"
-	
+
 	"github.com/agirot/superviGo/ressource"
 )
 
@@ -31,15 +31,15 @@ var (
 )
 
 func getStats(queueName string) (rabbitMqRequest, []error) {
-	queueConfig, ok := config.Config.Amqp.Queue[queueName]
+	queueConfig, ok := config.Config.RabbitMq.Queue[queueName]
 	if !ok {
 		panic("Queue name undefined in configuration")
 	}
 
 	request := gorequest.New()
 	currentQueue := rabbitMqRequest{}
-	url := fmt.Sprintf("http://%v:%v/api/queues/%%2F/%v", config.Config.Amqp.Host, config.Config.Amqp.WebPort, queueName)
-	_, _, errs := request.Get(url).SetBasicAuth(config.Config.Amqp.User, config.Config.Amqp.Password).EndStruct(&currentQueue)
+	url := fmt.Sprintf("http://%v:%v/api/queues/%%2F/%v", config.Config.RabbitMq.Host, config.Config.RabbitMq.WebPort, queueName)
+	_, _, errs := request.Get(url).SetBasicAuth(config.Config.RabbitMq.User, config.Config.RabbitMq.Password).EndStruct(&currentQueue)
 	if errs != nil {
 		return currentQueue, errs
 	}
@@ -52,7 +52,7 @@ func getStats(queueName string) (rabbitMqRequest, []error) {
 }
 
 func Render() *ui.Table {
-	for name, _ := range config.Config.Amqp.Queue {
+	for name, _ := range config.Config.RabbitMq.Queue {
 		Tab = append(Tab, []string{name, "loading...", "loading..."})
 	}
 
